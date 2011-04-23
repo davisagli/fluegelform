@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<componentregistry>
+  <utilities>
+    <utility 
+        interface="fluegelform.interfaces.ISchemaStore"
+        factory="fluegelform.schema.SchemaStore"
+        />
+  </utilities>
+</componentregistry>

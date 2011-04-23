@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+  
+  <browser:page
+    for="..interfaces.IForm"
+    name="view"
+    class=".form.FormView"
+    permission="zope2.View"
+    />
+  
+  <browser:page
+    for="..interfaces.IForm"
+    name="edit-schema"
+    class=".schema.FormSchemaContext"
+    permission="cmf.ModifyPortalContent"
+    allowed_interface="OFS.interfaces.IItem"
+    />
+  
+  <browser:page
+    for="..interfaces.IEntry"
+    name="view"
+    class=".entry.EntryView"
+    template="templates/entry_view.pt"
+    permission="zope2.View"
+    />
+
+  <!-- Save schema changes -->
+  <subscriber handler=".schema.save_schema" />
+
+</configure>

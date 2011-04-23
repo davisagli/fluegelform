@@ -1,0 +1,3 @@
+- authenticator
+- edit schema in session before saving changes
+- etc.
