@@ -12,6 +12,7 @@ Design goals:
   one it's associated with.
 
 * Pluggable actions on form submission:
+
   - E-mail
   - Relay to another form (via redirect or re-POST)
   - Store as content in ZODB
@@ -20,6 +21,7 @@ Design goals:
   - Display thank you page
 
 * Possible new use cases to tackle:
+
   - Multi-page forms
   - Saving incomplete forms for later
   - Surveys (Invite participants, report on results)
@@ -29,6 +31,7 @@ Maybe eventually:
 * Easily customizable layout (a la Deco)
 
 * Be usable inside Zope or Pyramid.
+
   - This makes the use of at least z3c.form, and probably zope.schema, an
     anti-pattern.
   - Look at colander / deform?
