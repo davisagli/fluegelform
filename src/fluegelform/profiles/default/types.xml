@@ -1,4 +1,3 @@
 <object name="portal_types">
  <object name="fluegelform.form" meta_type="Dexterity FTI" />
- <object name="fluegelform.entry" meta_type="Dexterity FTI" />
 </object>

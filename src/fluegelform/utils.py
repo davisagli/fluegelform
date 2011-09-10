@@ -1,9 +1,4 @@
 import pkg_resources
-from hashlib import md5
-from zope.component import getUtility
-from plone.supermodel import serializeSchema
-from plone.supermodel import loadString
-from fluegelform.interfaces import ISchemaStore
 
 
 DEFAULT_MODEL_XML = pkg_resources.resource_string(
@@ -12,17 +7,17 @@ DEFAULT_MODEL_XML = pkg_resources.resource_string(
     )
 
 
-def get_schema_store():
-    return getUtility(ISchemaStore)
+class InvalidatingProperty(object):
+    """A property that deletes another attribute when set."""
 
+    def __init__(self, attr, invalidates_attr):
+        self.attr = attr
+        self.invalidates_attr = invalidates_attr
 
-def digest_schema(schema):
-    xml = serializeSchema(schema)
-    digest = md5(xml.strip()).hexdigest()
-    return xml, digest
+    def __get__(self, inst, klass):
+        return getattr(inst, self.attr)
 
-
-def load_schema(xml):
-    if xml is None or not xml.strip():
-        xml = DEFAULT_MODEL_XML
-    return loadString(xml).schema
+    def __set__(self, inst, value):
+        setattr(inst, self.attr, value)
+        if hasattr(inst, self.invalidates_attr):
+            delattr(inst, self.invalidates_attr)

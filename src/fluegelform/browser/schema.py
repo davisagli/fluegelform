@@ -14,7 +14,7 @@ class FormSchemaContext(SchemaContext):
     adapts(IForm)
 
     def __init__(self, context, request):
-        schema = context.lookupSchema()
+        schema = context.schema
         super(FormSchemaContext, self).__init__(schema, request, name='edit-schema')
 
         self.form = context
