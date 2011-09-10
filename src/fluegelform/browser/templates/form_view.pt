@@ -6,14 +6,7 @@
       metal:use-macro="context/main_template/macros/master">
 
   <metal:block fill-slot="content-core">
-    <metal:block use-macro="context/@@ploneform-macros/titlelessform">
-      <tal:block metal:fill-slot="formtop">
-        <tal:block tal:replace="structure context/prologue/output" />
-      </tal:block>
-      <tal:block metal:fill-slot="formbottom">
-        <tal:block tal:replace="structure context/epilogue/output" />
-      </tal:block>
-    </metal:block>
+    <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
   </metal:block>
 
 </html>

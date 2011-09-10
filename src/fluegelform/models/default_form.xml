@@ -1,17 +1,16 @@
 <model xmlns="http://namespaces.plone.org/supermodel/schema">
   <schema>
-    <field name="replyto" type="plone.patternfield.TextPattern">
-      <description />
-      <pattern_id>is_email</pattern_id>
+    <field name="replyto" type="zope.schema.TextLine">
       <title>Your Email Address</title>
+      <description />
     </field>
     <field name="topic" type="zope.schema.TextLine">
-      <description />
       <title>Subject</title>
+      <description />
     </field>
     <field name="comments" type="zope.schema.Text">
-      <description />
       <title>Comments</title>
+      <description />
     </field>
   </schema>
 </model>
