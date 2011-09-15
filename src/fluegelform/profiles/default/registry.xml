@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<registry>
+
+    <!-- Tile categories -->
+    <records interface="plone.app.deco.interfaces.IWeightedDict"
+             prefix="plone.app.deco.tiles_categories.formfields">
+        <value key="name">formfields</value>
+        <value key="label">Form Fields</value>
+        <value key="weight">70</value>
+    </records>
+
+    <!-- Tiles -->
+   <records prefix="plone.app.deco.app_tiles.fluegelform_fields_TextLine"
+            interface="plone.app.deco.interfaces.ITile">
+        <value key="name">fluegelform.fields.TextLine</value>
+        <value key="label">Text</value>
+        <value key="category">formfields</value>
+        <value key="tile_type">app</value>
+        <value key="default_value"></value>
+        <value key="read_only">false</value>
+        <value key="settings">true</value>
+        <value key="favorite">false</value>
+        <value key="rich_text">false</value>
+        <value key="weight">0</value>
+    </records>
+
+</registry>

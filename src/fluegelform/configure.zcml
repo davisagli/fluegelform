@@ -1,20 +1,31 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="fluegelform">
 
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
-    
     <include package=".browser" />
     
     <!-- Register an extension profile to make the product installable -->
     <genericsetup:registerProfile
         name="default"
         title="Flügelform"
-        description="Dexterity-based form generator."
+        description="Deco form generator."
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <plone:tile
+        name="fluegelform.fields.TextLine"
+        title="Text input"
+        description=""
+        add_permission="cmf.ModifyPortalContent"
+        schema=".interfaces.IField"
+        class=".fields.TextLineTile"
+        permission="zope.Public"
+        for=".interfaces.IForm"
         />
 
 </configure>

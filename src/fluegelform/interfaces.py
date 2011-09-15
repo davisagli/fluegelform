@@ -1,17 +1,24 @@
-from zope.interface import Interface, Attribute
-from plone.schemaeditor.interfaces import ISchemaContext
+from zope.interface import Interface
+from zope import schema
+from plone.tiles.interfaces import ITile
+from plone.app.page.interfaces import IPage
+from fluegelform import _
 
 
-class IForm(Interface):
+class IForm(IPage):
     """A TTW-configurable form."""
 
-    schema_xml = Attribute("The XML serialization of the current form schema.")
-    schema = Attribute("The current form schema. Loaded from the ``schema_xml`` "
-                       "attribute on demand, and cached in a volatile attribute, "
-                       "``_v_schema``.")
+
+class IFieldTile(ITile):
+    """A tile representing a form field."""
+
+    def fields(self):
+        """Called to obtain the schema field(s) represented by this tile.
+        """
 
 
-class IFormSchemaContext(ISchemaContext):
-    """A plone.schemaeditor schema editing context associated with a form."""
+class IField(Interface):
+    """The schema of a form field."""
 
-    form = Attribute("The form whose schema is being edited.")
+    title = schema.TextLine(title = _(u'Label'))
+    description = schema.TextLine(title = _(u'Help Text'))

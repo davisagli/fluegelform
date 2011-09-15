@@ -9,15 +9,4 @@
     permission="zope2.View"
     />
   
-  <browser:page
-    for="..interfaces.IForm"
-    name="edit-schema"
-    class=".schema.FormSchemaContext"
-    permission="cmf.ModifyPortalContent"
-    allowed_interface="OFS.interfaces.IItem"
-    />
-  
-  <!-- Save schema changes -->
-  <subscriber handler=".schema.save_schema" />
-
 </configure>

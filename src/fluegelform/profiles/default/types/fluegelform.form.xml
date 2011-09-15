@@ -24,6 +24,7 @@
  <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IDublinCore" />
+     <element value="plone.app.blocks.layoutbehavior.ILayoutAware" />
  </property>
  
  <!-- View information -->
@@ -46,10 +47,6 @@
  </action>
  <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
-  <permission value="Modify portal content"/>
- </action>
- <action title="Schema" action_id="edit-schema" category="object" condition_expr=""
-    url_expr="string:${object_url}/edit-schema" visible="True">
   <permission value="Modify portal content"/>
  </action>
 </object>

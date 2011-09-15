@@ -23,8 +23,12 @@ setup(name='fluegelform',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'lxml',
+          'repoze.xmliter',
           'setuptools',
           'Products.CMFPlone',
+          'plone.app.blocks',
+          'plone.app.deco',
           'plone.app.dexterity',
           'zope.interface',
           # -*- Extra requirements: -*-
