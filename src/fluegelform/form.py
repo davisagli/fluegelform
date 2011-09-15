@@ -31,6 +31,6 @@ class Form(Container):
                 else:
                     if IFieldTile.providedBy(tile):
                         yield tileId, tile
-
-            # remove the tile link from the head
-            tileNode.getparent().remove(tileNode)
+                        
+                        # remove the tile link from the head
+                        tileNode.getparent().remove(tileNode)

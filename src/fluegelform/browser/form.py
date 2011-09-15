@@ -1,3 +1,4 @@
+from zope.component import getMultiAdapter
 from lxml import html
 from z3c.form import form, field
 from plone.app.blocks.layoutbehavior import ILayoutAware
@@ -25,7 +26,9 @@ class FormView(form.Form):
         
         for tileId, tile in self.context.field_tiles(layoutTree.tree):
             # XXX need to include the full Plone view of the field
-            widgetHtml = self.widgets[tile.id].render()
+            widget = self.widgets[tile.id]
+            widgetRenderer = getMultiAdapter((widget, self.request), name=u'ploneform-render-widget')
+            widgetHtml = widgetRenderer()
             tileTree = html.fromstring(widgetHtml).getroottree()
             tileTarget = xpath1("//*[@id='%s']" % tileId, layoutTree.tree)
             
